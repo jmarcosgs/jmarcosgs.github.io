@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcos Gomes — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F1E8;
+    --paper-alt:#EFE9DA;
+    --ink:#202A28;
+    --ink-soft:#4A5450;
+    --teal:#2E6F64;
+    --teal-deep:#1E4E46;
+    --amber:#C97A3D;
+    --rule:#D8D2C0;
+    --card:#FFFFFF;
+    --focus:#1E4E46;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px);
+    background-size: 100% 32px;
+    background-attachment:local;
+  }
+  a{color:var(--teal-deep);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  header.site{
+    position:sticky; top:0; z-index:20;
+    background:rgba(245,241,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0;
+  }
+  .nav .mark{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em;
+    color:var(--teal-deep); font-weight:600;
+  }
+  .nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0;}
+  .nav a{
+    text-decoration:none; color:var(--ink-soft); font-size:14px; font-weight:500;
+    border-bottom:1px solid transparent;
+  }
+  .nav a:hover{color:var(--ink); border-bottom-color:var(--amber);}
+
+  /* HERO */
+  .hero{padding:76px 0 40px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--teal-deep);
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--amber);}
+  h1.name{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(38px,6vw,64px);
+    margin:0 0 10px; letter-spacing:-0.01em; line-height:1.02;
+  }
+  .role{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+    font-size:clamp(18px,2.2vw,22px); color:var(--ink-soft); margin:0 0 30px;
+    max-width:640px;
+  }
+  .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:52px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; text-decoration:none;
+    padding:10px 18px; border-radius:2px; border:1px solid var(--ink);
+    color:var(--ink); transition:all .15s ease; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn:hover{background:var(--ink); color:var(--paper);}
+  .btn.primary{background:var(--teal-deep); border-color:var(--teal-deep); color:#fff;}
+  .btn.primary:hover{background:var(--ink);}
+
+  /* TRENDLINE SIGNATURE */
+  .trendline-wrap{margin:0 0 8px; overflow-x:auto;}
+  .trendline-caption{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+    letter-spacing:0.04em; margin-top:6px; text-transform:uppercase;
+  }
+  svg.trend path.line{
+    stroke:var(--teal); stroke-width:2; fill:none;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.1s ease forwards .2s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  svg.trend circle{fill:var(--amber); stroke:var(--paper); stroke-width:3;}
+  svg.trend .pt-label{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--ink-soft);}
+  svg.trend .pt-year{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--ink); font-weight:600;}
+
+  section{padding:56px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:30px;}
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--amber);}
+  h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,3vw,32px); margin:0;
+  }
+
+  /* BIO */
+  .bio p{font-size:17px; max-width:700px; color:var(--ink);}
+  .bio p + p{margin-top:16px;}
+
+  /* SKILLS / STATS */
+  .stat-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); margin-bottom:40px;
+  }
+  .stat{background:var(--card); padding:20px 18px;}
+  .stat .num{font-family:'Fraunces', serif; font-size:30px; color:var(--teal-deep); font-weight:600;}
+  .stat .lbl{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin-top:4px; letter-spacing:0.02em;}
+
+  .skill-cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:24px;}
+  .skill-card{background:var(--card); border:1px solid var(--rule); padding:20px 22px;}
+  .skill-card h3{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--teal-deep); margin:0 0 12px;
+  }
+  .skill-card ul{margin:0; padding-left:18px; font-size:14.5px; color:var(--ink);}
+  .skill-card li{margin-bottom:6px;}
+  .resume-link{margin-top:26px; font-size:14px;}
+
+  /* TIMELINE / EXPERIENCE */
+  .timeline{border-left:1px solid var(--rule); padding-left:0;}
+  .job{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:22px 0; border-bottom:1px dashed var(--rule);}
+  .job:last-child{border-bottom:none;}
+  .job .when{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); padding-top:3px;}
+  .job h3{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 4px;}
+  .job .org{font-size:13.5px; color:var(--teal-deep); margin-bottom:10px; font-weight:500;}
+  .job ul{margin:0; padding-left:18px; font-size:14.5px;}
+  .job li{margin-bottom:6px;}
+
+  /* WORK SAMPLES */
+  .sample-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
+  .sample-card{
+    background:var(--card); border:1px solid var(--rule); padding:22px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .sample-card.placeholder{border-style:dashed; color:var(--ink-soft);}
+  .sample-card h3{font-family:'Fraunces', serif; font-size:18px; margin:0;}
+  .sample-card p{font-size:14px; margin:0; color:var(--ink-soft);}
+  .sample-card .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
+    color:var(--amber); letter-spacing:0.05em;
+  }
+  .gh-card{
+    background:var(--teal-deep); color:#fff; border:1px solid var(--teal-deep);
+  }
+  .gh-card a{color:#fff; font-family:'IBM Plex Mono', monospace; font-size:13px;}
+
+  /* EDUCATION */
+  .edu-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:36px;}
+  .edu-item{padding:16px 0; border-bottom:1px solid var(--rule);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item h3{font-family:'Fraunces', serif; font-size:17px; margin:0 0 3px;}
+  .edu-item .org{font-size:13.5px; color:var(--ink-soft);}
+  .edu-item .when{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--teal-deep); margin-top:4px;}
+  .cert-box{background:var(--card); border:1px solid var(--rule); padding:20px 22px; align-self:start;}
+  .cert-box h3{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
+    color:var(--teal-deep); margin:0 0 12px; letter-spacing:0.04em;
+  }
+  .cert-box ul{margin:0 0 16px; padding-left:18px; font-size:14px;}
+  .note{
+    font-size:12.5px; color:var(--ink-soft); border-left:2px solid var(--amber);
+    padding-left:10px; margin-top:8px;
+  }
+
+  footer{padding:44px 0 60px;}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; align-items:flex-end;}
+  footer .name-mark{font-family:'Fraunces', serif; font-size:22px; font-weight:600;}
+  footer .contact{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);}
+  footer .contact a{color:var(--ink-soft); display:block; margin-bottom:4px;}
+  footer .contact a:hover{color:var(--teal-deep);}
+
+  @media (max-width:640px){
+    .job{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .nav ul{gap:14px;}
+    .nav ul li:nth-child(4), .nav ul li:nth-child(5){display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <span class="mark">MARCOS GOMES // AI SOLUTIONS DEV</span>
+    <nav>
+      <ul>
+        <li><a href="#bio">Perfil</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#work">Projetos</a></li>
+        <li><a href="#education">Formação</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">Applied A.I. Solutions Development — George Brown Polytechnic</p>
+    <h1 class="name">Marcos Gomes</h1>
+    <p class="role">Dez anos transformando dados de saúde em decisões — agora construindo os sistemas de IA que farão isso ainda mais rápido.</p>
+
+    <div class="hero-cta">
+      <a class="btn primary" href="#skills">Ver currículo</a>
+      <a class="btn" href="https://github.com/jmarcosgs" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/joao-marcos-gs/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+
+    <div class="trendline-wrap">
+      <svg class="trend" viewBox="0 0 920 150" width="100%" height="150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Linha do tempo: trajetória de Analista Júnior a especialista em Soluções de IA">
+        <line x1="0" y1="120" x2="920" y2="120" stroke="#D8D2C0" stroke-width="1"/>
+        <path class="line" d="M10,110 C120,100 160,95 230,90 C300,85 340,70 410,60 C480,50 520,45 590,38 C650,32 690,20 780,15 C830,12 870,10 905,8" />
+        <g>
+          <circle cx="10" cy="110" r="4"/>
+          <text class="pt-year" x="10" y="135">2013</text>
+          <text class="pt-label" x="10" y="148">Jr. Data Analyst</text>
+        </g>
+        <g>
+          <circle cx="230" cy="90" r="4"/>
+          <text class="pt-year" x="230" y="135">2016</text>
+          <text class="pt-label" x="230" y="148">Data Analyst</text>
+        </g>
+        <g>
+          <circle cx="410" cy="60" r="4"/>
+          <text class="pt-year" x="410" y="135">2020</text>
+          <text class="pt-label" x="410" y="148">Sr. Data Analyst</text>
+        </g>
+        <g>
+          <circle cx="590" cy="38" r="4"/>
+          <text class="pt-year" x="590" y="135">2023</text>
+          <text class="pt-label" x="590" y="148">PG Cert. Marketing Analytics</text>
+        </g>
+        <g>
+          <circle cx="905" cy="8" r="5" fill="#C97A3D"/>
+          <text class="pt-year" x="850" y="135">2026–27</text>
+          <text class="pt-label" x="850" y="148">Applied A.I. (em curso)</text>
+        </g>
+      </svg>
+      <p class="trendline-caption">/ trajetória — de análise de dados em saúde a desenvolvimento de soluções de IA</p>
+    </div>
+  </section>
+
+  <section id="bio" class="wrap bio">
+    <div class="section-head"><span class="section-num">01</span><h2>Perfil</h2></div>
+    <p>Sou profissional de analytics com mais de dez anos de experiência em saúde, business intelligence e apoio a decisões orientadas por dados. Construí minha carreira no setor de seguros de saúde no Brasil, onde passei de analista júnior a analista sênior, liderando projetos de classificação de prestadores, modelos de custo e detecção de fraude — sempre traduzindo dados complexos em recomendações que times de negócio pudessem usar.</p>
+    <p>Hoje estou em Toronto cursando o Postgraduate Certificate em Applied A.I. Solutions Development no George Brown Polytechnic, aplicando essa base estatística e de BI para projetar e construir soluções de inteligência artificial. Meu interesse é claro: pegar a mesma disciplina que usei para automatizar relatórios e detectar padrões em dados de saúde, e aplicá-la à próxima geração de ferramentas orientadas por IA.</p>
+  </section>
+
+  <section id="skills" class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2>Skills &amp; Currículo</h2></div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">10+</div><div class="lbl">anos em analytics &amp; BI</div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl">dashboards interativos entregues</div></div>
+      <div class="stat"><div class="num">80%</div><div class="lbl">da empresa alcançada com relatórios</div></div>
+      <div class="stat"><div class="num">70%</div><div class="lbl">redução de custo em negociações hospitalares</div></div>
+    </div>
+
+    <div class="skill-cols">
+      <div class="skill-card">
+        <h3>Dados &amp; Programação</h3>
+        <ul>
+          <li>SQL, Python</li>
+          <li>Power Query, VBA</li>
+          <li>SAS Enterprise Guide / Miner</li>
+          <li>Data Cleaning &amp; Extraction</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>BI &amp; Analytics</h3>
+        <ul>
+          <li>Power BI, Tableau</li>
+          <li>Microsoft Excel</li>
+          <li>Dashboard Development</li>
+          <li>Reporting Automation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Metodologias Avançadas</h3>
+        <ul>
+          <li>Análise Estatística</li>
+          <li>Trend Analysis</li>
+          <li>Data Integrity</li>
+          <li>Business Insights</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Competências Core</h3>
+        <ul>
+          <li>Data Storytelling</li>
+          <li>Comunicação com Stakeholders</li>
+          <li>Melhoria de Processos</li>
+          <li>Colaboração Cross-Funcional</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="resume-link">📄 <a href="resume.pdf" target="_blank">Baixar currículo completo (PDF)</a> — <em>adicione o arquivo resume.pdf na raiz do repositório para ativar este link.</em></p>
+  </section>
+
+  <section id="experience" class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Experiência</h2></div>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">Jun 2020 – Nov 2022</div>
+        <div>
+          <h3>Senior Data Analyst</h3>
+          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <ul>
+            <li>Desenvolvi e mantive mais de 20 dashboards interativos, entregando insights em tempo real para 80% das áreas da empresa.</li>
+            <li>Construí um modelo de monitoramento de custos em SAS Enterprise Guide, otimizando negociações hospitalares e reduzindo custos em até 30%.</li>
+            <li>Usei SAS, R e Python para analisar dados de geolocalização e identificar atividades fraudulentas no sistema de saúde.</li>
+            <li>Apliquei metodologias estatísticas avançadas para orientar e treinar colegas de equipe.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Mai 2016 – Jun 2020</div>
+        <div>
+          <h3>Data Analyst</h3>
+          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <ul>
+            <li>Liderei um projeto de classificação de prestadores de saúde por especialidade, localização e custo, reduzindo custos em até 70%.</li>
+            <li>Otimizei fluxos operacionais mantendo e evoluindo modelos automatizados de pagamento, reduzindo custos de processamento em 40%.</li>
+            <li>Automatizei processos analíticos repetitivos com Excel, SAS, R e Python, liberando 2+ horas por analista ao dia.</li>
+            <li>Gerenciei grandes volumes de dados em SQL e SAS, garantindo precisão para decisões críticas de negócio.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Fev 2013 – Mai 2016</div>
+        <div>
+          <h3>Junior Data Analyst</h3>
+          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <ul>
+            <li>Criei relatórios detalhados em MicroStrategy e BusinessObjects para múltiplos departamentos.</li>
+            <li>Colaborei com times de TI no design, teste e validação de novas métricas de performance.</li>
+            <li>Apliquei métodos estatísticos, incluindo regressão e estatística descritiva, usando VBA.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>Projetos &amp; Amostras de Trabalho</h2></div>
+    <div class="sample-grid">
+      <div class="sample-card gh-card">
+        <span class="tag">Repositório principal</span>
+        <h3>GitHub — @jmarcosgs</h3>
+        <p style="color:#DCE7E4;">Código, notebooks e projetos do programa Applied A.I. Solutions Development.</p>
+        <a href="https://github.com/jmarcosgs" target="_blank" rel="noopener">github.com/jmarcosgs ↗</a>
+      </div>
+      <div class="sample-card placeholder">
+        <span class="tag">Adicionar projeto</span>
+        <h3>Projeto de IA/ML #1</h3>
+        <p>Substitua este card por um projeto real do curso (ex.: modelo preditivo, chatbot, pipeline de dados) com link para o repositório.</p>
+      </div>
+      <div class="sample-card placeholder">
+        <span class="tag">Adicionar projeto</span>
+        <h3>Projeto de IA/ML #2</h3>
+        <p>Ex.: o projeto de forecasting de churn com séries temporais mencionado na sua formação em Estatística — pode ser um bom candidato aqui.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2>Formação &amp; Reconhecimentos</h2></div>
+    <div class="edu-grid">
+      <div>
+        <div class="edu-item">
+          <h3>Postgraduate Certificate — Applied A.I. Solutions Development</h3>
+          <div class="org">George Brown Polytechnic, School of Computer Technology, Toronto, ON</div>
+          <div class="when">Em andamento — conclusão prevista abril de 2027</div>
+        </div>
+        <div class="edu-item">
+          <h3>Postgraduate Certificate — Marketing, Research &amp; Analytics</h3>
+          <div class="org">Centennial College of Applied Arts and Technology, Toronto, ON</div>
+          <div class="when">Dezembro de 2023 · Cum Laude, GPA 4.0/4.0</div>
+        </div>
+        <div class="edu-item">
+          <h3>Bacharelado em Estatística</h3>
+          <div class="org">Universidade do Estado do Rio de Janeiro (UERJ), Rio de Janeiro, Brasil</div>
+          <div class="when">Dezembro de 2019</div>
+          <p style="font-size:13.5px; color:var(--ink-soft); margin-top:6px;">Projeto principal: previsão de churn de curto prazo usando modelos de séries temporais para apoiar estratégias de retenção.</p>
+        </div>
+      </div>
+
+      <div class="cert-box">
+        <h3>Certificações</h3>
+        <ul>
+          <li>SAS Programming — Basic</li>
+          <li>SAS Programming — Advanced</li>
+          <li>SAS Enterprise Miner</li>
+        </ul>
+        <p style="font-size:12.5px; color:var(--ink-soft); margin:0;">SAS Institute, Brasil — 2019</p>
+        <div class="note">Adicione aqui cópias de transcripts (oficial/não oficial) e cartas de recomendação, se houver — como PDFs anexados ou links de download, conforme exigido pela guideline do trabalho.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-grid">
+    <div>
+      <div class="name-mark">Marcos Gomes</div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;">Toronto, ON, Canadá</div>
+    </div>
+    <div class="contact">
+      <a href="mailto:gs.jmarcos@gmail.com">gs.jmarcos@gmail.com</a>
+      <a href="https://www.linkedin.com/in/joao-marcos-gs/" target="_blank" rel="noopener">linkedin.com/in/joao-marcos-gs</a>
+      <a href="https://github.com/jmarcosgs" target="_blank" rel="noopener">github.com/jmarcosgs</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
