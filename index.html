@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcos Gomes , Portfolio</title>
+<title>Marcos Gomes — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F1E8;
-    --paper-alt:#EFE9DA;
-    --ink:#202A28;
-    --ink-soft:#4A5450;
-    --teal:#2E6F64;
-    --teal-deep:#1E4E46;
-    --amber:#C97A3D;
-    --rule:#D8D2C0;
-    --card:#FFFFFF;
-    --focus:#1E4E46;
+    --bg:#FAF7F1;
+    --surface:#FFFFFF;
+    --ink:#1B1712;
+    --ink-soft:#6E6255;
+    --brown:#7A5233;
+    --brown-deep:#3D2A1B;
+    --line:#E6DECD;
+    --focus:#3D2A1B;
     --maxw:1040px;
   }
   *{box-sizing:border-box;}
@@ -29,172 +27,138 @@
   }
   body{
     margin:0;
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
     font-family:'Inter', sans-serif;
-    line-height:1.6;
-    background-image:
-      linear-gradient(var(--rule) 1px, transparent 1px);
-    background-size: 100% 32px;
-    background-attachment:local;
+    line-height:1.65;
   }
-  a{color:var(--teal-deep);}
+  a{color:var(--brown-deep);}
   a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
 
   header.site{
     position:sticky; top:0; z-index:20;
-    background:rgba(245,241,232,0.92);
+    background:rgba(250,247,241,0.9);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--rule);
+    border-bottom:1px solid var(--line);
   }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 0;
-  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:16px;}
   .nav .mark{
-    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em;
-    color:var(--teal-deep); font-weight:600;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.05em;
+    color:var(--ink); font-weight:500; white-space:nowrap;
   }
-  .nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0;}
-  .nav a{
-    text-decoration:none; color:var(--ink-soft); font-size:14px; font-weight:500;
-    border-bottom:1px solid transparent;
+  .nav-right{display:flex; align-items:center; gap:26px;}
+  .nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  .nav a{text-decoration:none; color:var(--ink-soft); font-size:14px; font-weight:500; border-bottom:1px solid transparent; padding-bottom:2px;}
+  .nav a:hover{color:var(--ink); border-bottom-color:var(--brown);}
+  .lang-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.04em;
+    background:transparent; border:1px solid var(--ink); color:var(--ink);
+    padding:6px 13px; border-radius:999px; cursor:pointer; transition:all .15s ease;
   }
-  .nav a:hover{color:var(--ink); border-bottom-color:var(--amber);}
+  .lang-btn:hover{background:var(--ink); color:var(--bg);}
 
-  /* HERO */
-  .hero{padding:76px 0 40px;}
+  .hero{padding:88px 0 44px;}
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.08em;
-    text-transform:uppercase; color:var(--teal-deep);
-    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.09em;
+    text-transform:uppercase; color:var(--brown-deep);
+    display:flex; align-items:center; gap:10px; margin-bottom:20px;
   }
-  .eyebrow::before{content:""; width:22px; height:1px; background:var(--amber);}
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--brown);}
   h1.name{
-    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(38px,6vw,64px);
-    margin:0 0 10px; letter-spacing:-0.01em; line-height:1.02;
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(40px,6vw,66px);
+    margin:0 0 12px; letter-spacing:-0.01em; line-height:1.02; color:var(--ink);
   }
   .role{
     font-family:'Fraunces', serif; font-style:italic; font-weight:400;
-    font-size:clamp(18px,2.2vw,22px); color:var(--ink-soft); margin:0 0 30px;
-    max-width:640px;
+    font-size:clamp(18px,2.2vw,22px); color:var(--ink-soft); margin:0 0 34px; max-width:640px;
   }
-  .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:52px;}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:60px;}
   .btn{
     font-family:'IBM Plex Mono', monospace; font-size:13px; text-decoration:none;
-    padding:10px 18px; border-radius:2px; border:1px solid var(--ink);
+    padding:11px 20px; border-radius:2px; border:1px solid var(--ink);
     color:var(--ink); transition:all .15s ease; display:inline-flex; align-items:center; gap:8px;
   }
-  .btn:hover{background:var(--ink); color:var(--paper);}
-  .btn.primary{background:var(--teal-deep); border-color:var(--teal-deep); color:#fff;}
-  .btn.primary:hover{background:var(--ink);}
+  .btn:hover{background:var(--ink); color:var(--bg);}
+  .btn.primary{background:var(--brown-deep); border-color:var(--brown-deep); color:#fff;}
+  .btn.primary:hover{background:var(--ink); border-color:var(--ink);}
 
-  /* TRENDLINE SIGNATURE */
   .trendline-wrap{margin:0 0 8px; overflow-x:auto;}
   .trendline-caption{
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
-    letter-spacing:0.04em; margin-top:6px; text-transform:uppercase;
+    letter-spacing:0.04em; margin-top:10px; text-transform:uppercase;
   }
   svg.trend path.line{
-    stroke:var(--teal); stroke-width:2; fill:none;
-    stroke-dasharray:900; stroke-dashoffset:900;
-    animation:draw 2.1s ease forwards .2s;
+    stroke:var(--brown); stroke-width:2; fill:none;
+    stroke-dasharray:900; stroke-dashoffset:900; animation:draw 2.1s ease forwards .2s;
   }
   @keyframes draw{to{stroke-dashoffset:0;}}
-  svg.trend circle{fill:var(--amber); stroke:var(--paper); stroke-width:3;}
+  svg.trend circle{fill:var(--brown-deep); stroke:var(--bg); stroke-width:3;}
   svg.trend .pt-label{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--ink-soft);}
   svg.trend .pt-year{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--ink); font-weight:600;}
 
-  section{padding:56px 0; border-bottom:1px solid var(--rule);}
+  section{padding:60px 0; border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
-  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:30px;}
-  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--amber);}
-  h2{
-    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,3vw,32px); margin:0;
-  }
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:32px;}
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--brown);}
+  h2{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:clamp(23px,3vw,30px); margin:0; color:var(--ink); letter-spacing:-0.01em;}
 
-  /* BIO */
   .bio p{font-size:17px; max-width:700px; color:var(--ink);}
   .bio p + p{margin-top:16px;}
 
-  /* SKILLS / STATS */
   .stat-grid{
     display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
-    background:var(--rule); border:1px solid var(--rule); margin-bottom:40px;
+    background:var(--line); border:1px solid var(--line); margin-bottom:44px;
   }
-  .stat{background:var(--card); padding:20px 18px;}
-  .stat .num{font-family:'Fraunces', serif; font-size:30px; color:var(--teal-deep); font-weight:600;}
+  .stat{background:var(--surface); padding:22px 18px;}
+  .stat .num{font-family:'Fraunces', serif; font-size:30px; color:var(--brown-deep); font-weight:600;}
   .stat .lbl{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin-top:4px; letter-spacing:0.02em;}
 
-  .skill-cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:24px;}
-  .skill-card{background:var(--card); border:1px solid var(--rule); padding:20px 22px;}
+  .skill-cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .skill-card{background:var(--surface); padding:22px 24px;}
   .skill-card h3{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
-    letter-spacing:0.04em; color:var(--teal-deep); margin:0 0 12px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--brown-deep); margin:0 0 14px;
   }
   .skill-card ul{margin:0; padding-left:18px; font-size:14.5px; color:var(--ink);}
   .skill-card li{margin-bottom:6px;}
-  .resume-link{margin-top:26px; font-size:14px;}
+  .resume-link{margin-top:28px; font-size:14px; color:var(--ink-soft);}
+  .resume-link a{font-weight:600;}
 
-  /* TIMELINE / EXPERIENCE */
-  .timeline{border-left:1px solid var(--rule); padding-left:0;}
-  .job{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:22px 0; border-bottom:1px dashed var(--rule);}
+  .timeline{border-left:1px solid var(--line); padding-left:0;}
+  .job{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:24px 0; border-bottom:1px solid var(--line);}
   .job:last-child{border-bottom:none;}
   .job .when{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); padding-top:3px;}
-  .job h3{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 4px;}
-  .job .org{font-size:13.5px; color:var(--teal-deep); margin-bottom:10px; font-weight:500;}
+  .job h3{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 4px; color:var(--ink);}
+  .job .org{font-size:13.5px; color:var(--brown-deep); margin-bottom:12px; font-weight:500;}
   .job ul{margin:0; padding-left:18px; font-size:14.5px;}
-  .job li{margin-bottom:6px;}
+  .job li{margin-bottom:7px;}
 
-  /* WORK SAMPLES */
-  .sample-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
-  .sample-card{
-    background:var(--card); border:1px solid var(--rule); padding:22px;
-    display:flex; flex-direction:column; gap:10px;
-  }
-  .sample-card.placeholder{border-style:dashed; color:var(--ink-soft);}
-  .sample-card h3{font-family:'Fraunces', serif; font-size:18px; margin:0;}
-  .sample-card p{font-size:14px; margin:0; color:var(--ink-soft);}
-  .sample-card .tag{
-    font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
-    color:var(--amber); letter-spacing:0.05em;
-  }
-  .gh-card{
-    background:var(--teal-deep); color:#fff; border:1px solid var(--teal-deep);
-  }
-  .gh-card a{color:#fff; font-family:'IBM Plex Mono', monospace; font-size:13px;}
-
-  /* EDUCATION */
-  .edu-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:36px;}
-  .edu-item{padding:16px 0; border-bottom:1px solid var(--rule);}
+  .edu-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:40px;}
+  .edu-item{padding:18px 0; border-bottom:1px solid var(--line);}
   .edu-item:last-child{border-bottom:none;}
-  .edu-item h3{font-family:'Fraunces', serif; font-size:17px; margin:0 0 3px;}
+  .edu-item h3{font-family:'Fraunces', serif; font-size:17px; margin:0 0 3px; color:var(--ink);}
   .edu-item .org{font-size:13.5px; color:var(--ink-soft);}
-  .edu-item .when{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--teal-deep); margin-top:4px;}
-  .cert-box{background:var(--card); border:1px solid var(--rule); padding:20px 22px; align-self:start;}
-  .cert-box h3{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase;
-    color:var(--teal-deep); margin:0 0 12px; letter-spacing:0.04em;
-  }
+  .edu-item .when{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--brown-deep); margin-top:5px;}
+  .edu-item .proj-note{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
+  .cert-box{background:var(--surface); border:1px solid var(--line); padding:22px 24px; align-self:start;}
+  .cert-box h3{font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase; color:var(--brown-deep); margin:0 0 14px; letter-spacing:0.04em;}
   .cert-box ul{margin:0 0 16px; padding-left:18px; font-size:14px;}
-  .note{
-    font-size:12.5px; color:var(--ink-soft); border-left:2px solid var(--amber);
-    padding-left:10px; margin-top:8px;
-  }
+  .cert-source{font-size:12.5px; color:var(--ink-soft); margin:0;}
+  .note{font-size:12.5px; color:var(--ink-soft); border-left:2px solid var(--brown); padding-left:10px; margin-top:10px;}
 
-  footer{padding:44px 0 60px;}
+  footer{padding:48px 0 64px;}
   .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; align-items:flex-end;}
-  footer .name-mark{font-family:'Fraunces', serif; font-size:22px; font-weight:600;}
+  footer .name-mark{font-family:'Fraunces', serif; font-size:22px; font-weight:600; color:var(--ink);}
   footer .contact{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);}
-  footer .contact a{color:var(--ink-soft); display:block; margin-bottom:4px;}
-  footer .contact a:hover{color:var(--teal-deep);}
+  footer .contact a{color:var(--ink-soft); display:block; margin-bottom:5px;}
+  footer .contact a:hover{color:var(--brown-deep);}
 
   @media (max-width:640px){
     .job{grid-template-columns:1fr;}
     .edu-grid{grid-template-columns:1fr;}
     .nav ul{gap:14px;}
-    .nav ul li:nth-child(4), .nav ul li:nth-child(5){display:none;}
+    .nav ul li:nth-child(3){display:none;}
   }
 </style>
 </head>
@@ -202,34 +166,38 @@
 
 <header class="site">
   <div class="wrap nav">
-    <span class="mark">MARCOS GOMES // AI SOLUTIONS DEV</span>
-    <nav>
-      <ul>
-        <li><a href="#bio">Perfil</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experiência</a></li>
-        <li><a href="#work">Projetos</a></li>
-        <li><a href="#education">Formação</a></li>
-      </ul>
-    </nav>
+    <span class="mark">MARCOS GOMES — ANALYTICS ENTHUSIAST</span>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="#bio" data-en="Profile" data-pt="Perfil">Profile</a></li>
+          <li><a href="#skills" data-en="Skills" data-pt="Skills">Skills</a></li>
+          <li><a href="#experience" data-en="Experience" data-pt="Experiência">Experience</a></li>
+          <li><a href="#education" data-en="Education" data-pt="Formação">Education</a></li>
+        </ul>
+      </nav>
+      <button id="langToggle" class="lang-btn" aria-pressed="false" aria-label="Switch language / Trocar idioma">PT-BR</button>
+    </div>
   </div>
 </header>
 
 <main>
   <section class="hero wrap">
-    <p class="eyebrow">Applied A.I. Solutions Development , George Brown Polytechnic</p>
+    <p class="eyebrow">Applied A.I. Solutions Development — George Brown Polytechnic</p>
     <h1 class="name">Marcos Gomes</h1>
-    <p class="role">Dez anos transformando dados de saúde em decisões , agora construindo os sistemas de IA que farão isso ainda mais rápido.</p>
+    <p class="role"
+      data-en="Ten years turning healthcare data into decisions — now building the AI systems that will do it faster."
+      data-pt="Dez anos transformando dados de saúde em decisões — agora construindo os sistemas de IA que farão isso ainda mais rápido.">Ten years turning healthcare data into decisions — now building the AI systems that will do it faster.</p>
 
     <div class="hero-cta">
-      <a class="btn primary" href="#skills">Ver currículo</a>
+      <a class="btn primary" href="#skills" data-en="View resume" data-pt="Ver currículo">View resume</a>
       <a class="btn" href="https://github.com/jmarcosgs" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="btn" href="https://www.linkedin.com/in/joao-marcos-gs/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
 
     <div class="trendline-wrap">
-      <svg class="trend" viewBox="0 0 920 150" width="100%" height="150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Linha do tempo: trajetória de Analista Júnior a especialista em Soluções de IA">
-        <line x1="0" y1="120" x2="920" y2="120" stroke="#D8D2C0" stroke-width="1"/>
+      <svg class="trend" viewBox="0 0 920 150" width="100%" height="150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Timeline: career trajectory from Junior Data Analyst to AI Solutions Development">
+        <line x1="0" y1="120" x2="920" y2="120" stroke="#E6DECD" stroke-width="1"/>
         <path class="line" d="M10,110 C120,100 160,95 230,90 C300,85 340,70 410,60 C480,50 520,45 590,38 C650,32 690,20 780,15 C830,12 870,10 905,8" />
         <g>
           <circle cx="10" cy="110" r="4"/>
@@ -249,42 +217,50 @@
         <g>
           <circle cx="590" cy="38" r="4"/>
           <text class="pt-year" x="590" y="135">2023</text>
-          <text class="pt-label" x="590" y="148">PG Cert. Marketing Analytics</text>
+          <text class="pt-label" x="590" y="148" data-en="PG Cert. Marketing Analytics" data-pt="Pós em Marketing Analytics">PG Cert. Marketing Analytics</text>
         </g>
         <g>
-          <circle cx="905" cy="8" r="5" fill="#C97A3D"/>
+          <circle cx="905" cy="8" r="5"/>
           <text class="pt-year" x="850" y="135">2026–27</text>
-          <text class="pt-label" x="850" y="148">Applied A.I. (em curso)</text>
+          <text class="pt-label" x="850" y="148" data-en="Applied A.I." data-pt="IA Aplicada">Applied A.I.</text>
         </g>
       </svg>
-      <p class="trendline-caption">/ trajetória , de análise de dados em saúde a desenvolvimento de soluções de IA</p>
+      <p class="trendline-caption"
+        data-en="/ trajectory — from healthcare data analysis to AI solutions development"
+        data-pt="/ trajetória — de análise de dados em saúde a desenvolvimento de soluções de IA">/ trajectory — from healthcare data analysis to AI solutions development</p>
     </div>
   </section>
 
   <section id="bio" class="wrap bio">
-    <div class="section-head"><span class="section-num">01</span><h2>Perfil</h2></div>
-    <p>Sou profissional de analytics com mais de dez anos de experiência em saúde, business intelligence e apoio a decisões orientadas por dados. Construí minha carreira no setor de seguros de saúde no Brasil, onde passei de analista júnior a analista sênior, liderando projetos de classificação de prestadores, modelos de custo e detecção de fraude , sempre traduzindo dados complexos em recomendações que times de negócio pudessem usar.</p>
-    <p>Hoje estou em Toronto cursando o Postgraduate Certificate em Applied A.I. Solutions Development no George Brown Polytechnic, aplicando essa base estatística e de BI para projetar e construir soluções de inteligência artificial. Meu interesse é claro: pegar a mesma disciplina que usei para automatizar relatórios e detectar padrões em dados de saúde, e aplicá-la à próxima geração de ferramentas orientadas por IA.</p>
+    <div class="section-head"><span class="section-num">01</span><h2 data-en="Profile" data-pt="Perfil">Profile</h2></div>
+    <p data-en="I'm an analytics professional with over ten years of experience in healthcare, business intelligence, and data-driven decision-making. I built my career in the health insurance sector in Brazil, moving from junior to senior analyst, leading provider classification projects, cost models, and fraud detection — always translating complex data into recommendations business teams could act on."
+       data-pt="Sou profissional de analytics com mais de dez anos de experiência em saúde, business intelligence e apoio a decisões orientadas por dados. Construí minha carreira no setor de seguros de saúde no Brasil, onde passei de analista júnior a analista sênior, liderando projetos de classificação de prestadores, modelos de custo e detecção de fraude — sempre traduzindo dados complexos em recomendações que times de negócio pudessem usar.">
+      I'm an analytics professional with over ten years of experience in healthcare, business intelligence, and data-driven decision-making. I built my career in the health insurance sector in Brazil, moving from junior to senior analyst, leading provider classification projects, cost models, and fraud detection — always translating complex data into recommendations business teams could act on.
+    </p>
+    <p data-en="Today I'm in Toronto pursuing the Postgraduate Certificate in Applied A.I. Solutions Development at George Brown Polytechnic, applying that statistical and BI foundation to designing and building artificial intelligence solutions. My focus is clear: take the same discipline I used to automate reporting and detect patterns in healthcare data, and apply it to the next generation of AI-driven tools."
+       data-pt="Hoje estou em Toronto cursando o Postgraduate Certificate em Applied A.I. Solutions Development no George Brown Polytechnic, aplicando essa base estatística e de BI para projetar e construir soluções de inteligência artificial. Meu interesse é claro: pegar a mesma disciplina que usei para automatizar relatórios e detectar padrões em dados de saúde, e aplicá-la à próxima geração de ferramentas orientadas por IA.">
+      Today I'm in Toronto pursuing the Postgraduate Certificate in Applied A.I. Solutions Development at George Brown Polytechnic, applying that statistical and BI foundation to designing and building artificial intelligence solutions. My focus is clear: take the same discipline I used to automate reporting and detect patterns in healthcare data, and apply it to the next generation of AI-driven tools.
+    </p>
   </section>
 
   <section id="skills" class="wrap">
-    <div class="section-head"><span class="section-num">02</span><h2>Skills &amp; Currículo</h2></div>
+    <div class="section-head"><span class="section-num">02</span><h2 data-en="Skills &amp; Resume" data-pt="Skills &amp; Currículo" data-html="true">Skills &amp; Resume</h2></div>
 
     <div class="stat-grid">
-      <div class="stat"><div class="num">10+</div><div class="lbl">anos em analytics &amp; BI</div></div>
-      <div class="stat"><div class="num">20+</div><div class="lbl">dashboards interativos entregues</div></div>
-      <div class="stat"><div class="num">80%</div><div class="lbl">da empresa alcançada com relatórios</div></div>
-      <div class="stat"><div class="num">70%</div><div class="lbl">redução de custo em negociações hospitalares</div></div>
+      <div class="stat"><div class="num">10+</div><div class="lbl" data-en="years in analytics &amp; BI" data-pt="anos em analytics &amp; BI" data-html="true">years in analytics &amp; BI</div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl" data-en="interactive dashboards delivered" data-pt="dashboards interativos entregues">interactive dashboards delivered</div></div>
+      <div class="stat"><div class="num">80%</div><div class="lbl" data-en="of the company reached through reporting" data-pt="da empresa alcançada com relatórios">of the company reached through reporting</div></div>
+      <div class="stat"><div class="num">70%</div><div class="lbl" data-en="cost reduction in hospital negotiations" data-pt="redução de custo em negociações hospitalares">cost reduction in hospital negotiations</div></div>
     </div>
 
     <div class="skill-cols">
       <div class="skill-card">
-        <h3>Dados &amp; Programação</h3>
+        <h3 data-en="Data &amp; Programming" data-pt="Dados &amp; Programação" data-html="true">Data &amp; Programming</h3>
         <ul>
           <li>SQL, Python</li>
           <li>Power Query, VBA</li>
           <li>SAS Enterprise Guide / Miner</li>
-          <li>Data Cleaning &amp; Extraction</li>
+          <li data-en="Data Cleaning &amp; Extraction" data-pt="Data Cleaning &amp; Extraction" data-html="true">Data Cleaning &amp; Extraction</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -297,105 +273,116 @@
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Metodologias Avançadas</h3>
+        <h3 data-en="Advanced Methodologies" data-pt="Metodologias Avançadas">Advanced Methodologies</h3>
         <ul>
-          <li>Análise Estatística</li>
+          <li data-en="Statistical Analysis" data-pt="Análise Estatística">Statistical Analysis</li>
           <li>Trend Analysis</li>
           <li>Data Integrity</li>
           <li>Business Insights</li>
         </ul>
       </div>
       <div class="skill-card">
-        <h3>Competências Core</h3>
+        <h3 data-en="Core Competencies" data-pt="Competências Core">Core Competencies</h3>
         <ul>
           <li>Data Storytelling</li>
-          <li>Comunicação com Stakeholders</li>
-          <li>Melhoria de Processos</li>
-          <li>Colaboração Cross-Funcional</li>
+          <li data-en="Stakeholder Communication" data-pt="Comunicação com Stakeholders">Stakeholder Communication</li>
+          <li data-en="Process Improvement" data-pt="Melhoria de Processos">Process Improvement</li>
+          <li data-en="Cross-Functional Collaboration" data-pt="Colaboração Cross-Funcional">Cross-Functional Collaboration</li>
         </ul>
       </div>
     </div>
 
-    <p class="resume-link">📄 <a href="resume.pdf" target="_blank">Baixar currículo completo (PDF)</a> , <em>adicione o arquivo resume.pdf na raiz do repositório para ativar este link.</em></p>
+    <p class="resume-link" data-html="true"
+      data-en="📄 <a href='resume.pdf' target='_blank'>Download full resume (PDF)</a> — <em>add the file resume.pdf to the repository root to activate this link.</em>"
+      data-pt="📄 <a href='resume.pdf' target='_blank'>Baixar currículo completo (PDF)</a> — <em>adicione o arquivo resume.pdf na raiz do repositório para ativar este link.</em>">📄 <a href="resume.pdf" target="_blank">Download full resume (PDF)</a> — <em>add the file resume.pdf to the repository root to activate this link.</em></p>
   </section>
 
   <section id="experience" class="wrap">
-    <div class="section-head"><span class="section-num">03</span><h2>Experiência</h2></div>
+    <div class="section-head"><span class="section-num">03</span><h2 data-en="Experience" data-pt="Experiência">Experience</h2></div>
     <div class="timeline">
       <div class="job">
-        <div class="when">Jun 2020 – Nov 2022</div>
+        <div class="when" data-en="Jun 2020 – Nov 2022" data-pt="Jun 2020 – Nov 2022">Jun 2020 – Nov 2022</div>
         <div>
-          <h3>Senior Data Analyst</h3>
-          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <h3 data-en="Senior Data Analyst" data-pt="Analista de Dados Sênior">Senior Data Analyst</h3>
+          <div class="org" data-en="Bradesco Seguros, Rio de Janeiro, Brazil" data-pt="Bradesco Seguros, Rio de Janeiro, Brasil">Bradesco Seguros, Rio de Janeiro, Brazil</div>
           <ul>
-            <li>Desenvolvi e mantive mais de 20 dashboards interativos, entregando insights em tempo real para 80% das áreas da empresa.</li>
-            <li>Construí um modelo de monitoramento de custos em SAS Enterprise Guide, otimizando negociações hospitalares e reduzindo custos em até 30%.</li>
-            <li>Usei SAS, R e Python para analisar dados de geolocalização e identificar atividades fraudulentas no sistema de saúde.</li>
-            <li>Apliquei metodologias estatísticas avançadas para orientar e treinar colegas de equipe.</li>
+            <li data-en="Developed and maintained 20+ interactive dashboards, delivering real-time insights across 80% of the company."
+                data-pt="Desenvolvi e mantive mais de 20 dashboards interativos, entregando insights em tempo real para 80% das áreas da empresa.">Developed and maintained 20+ interactive dashboards, delivering real-time insights across 80% of the company.</li>
+            <li data-en="Built a cost-monitoring model in SAS Enterprise Guide, optimizing hospital negotiations and cutting costs by up to 30%."
+                data-pt="Construí um modelo de monitoramento de custos em SAS Enterprise Guide, otimizando negociações hospitalares e reduzindo custos em até 30%.">Built a cost-monitoring model in SAS Enterprise Guide, optimizing hospital negotiations and cutting costs by up to 30%.</li>
+            <li data-en="Used SAS, R, and Python to analyze geolocation data and identify fraudulent activity within the healthcare system."
+                data-pt="Usei SAS, R e Python para analisar dados de geolocalização e identificar atividades fraudulentas no sistema de saúde.">Used SAS, R, and Python to analyze geolocation data and identify fraudulent activity within the healthcare system.</li>
+            <li data-en="Applied advanced statistical methodologies to guide and train fellow analysts."
+                data-pt="Apliquei metodologias estatísticas avançadas para orientar e treinar colegas de equipe.">Applied advanced statistical methodologies to guide and train fellow analysts.</li>
           </ul>
         </div>
       </div>
       <div class="job">
-        <div class="when">Mai 2016 – Jun 2020</div>
+        <div class="when" data-en="May 2016 – Jun 2020" data-pt="Mai 2016 – Jun 2020">May 2016 – Jun 2020</div>
         <div>
-          <h3>Data Analyst</h3>
-          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <h3 data-en="Data Analyst" data-pt="Analista de Dados">Data Analyst</h3>
+          <div class="org" data-en="Bradesco Seguros, Rio de Janeiro, Brazil" data-pt="Bradesco Seguros, Rio de Janeiro, Brasil">Bradesco Seguros, Rio de Janeiro, Brazil</div>
           <ul>
-            <li>Liderei um projeto de classificação de prestadores de saúde por especialidade, localização e custo, reduzindo custos em até 70%.</li>
-            <li>Otimizei fluxos operacionais mantendo e evoluindo modelos automatizados de pagamento, reduzindo custos de processamento em 40%.</li>
-            <li>Automatizei processos analíticos repetitivos com Excel, SAS, R e Python, liberando 2+ horas por analista ao dia.</li>
-            <li>Gerenciei grandes volumes de dados em SQL e SAS, garantindo precisão para decisões críticas de negócio.</li>
+            <li data-en="Led a provider classification project by specialty, location, and cost, cutting costs by up to 70%."
+                data-pt="Liderei um projeto de classificação de prestadores de saúde por especialidade, localização e custo, reduzindo custos em até 70%.">Led a provider classification project by specialty, location, and cost, cutting costs by up to 70%.</li>
+            <li data-en="Optimized operational workflows by maintaining automated payment models, reducing processing costs by 40%."
+                data-pt="Otimizei fluxos operacionais mantendo e evoluindo modelos automatizados de pagamento, reduzindo custos de processamento em 40%.">Optimized operational workflows by maintaining automated payment models, reducing processing costs by 40%.</li>
+            <li data-en="Automated repetitive analytical processes with Excel, SAS, R, and Python, freeing up 2+ hours per analyst daily."
+                data-pt="Automatizei processos analíticos repetitivos com Excel, SAS, R e Python, liberando 2+ horas por analista ao dia.">Automated repetitive analytical processes with Excel, SAS, R, and Python, freeing up 2+ hours per analyst daily.</li>
+            <li data-en="Managed large datasets in SQL and SAS, ensuring accuracy for critical business decisions."
+                data-pt="Gerenciei grandes volumes de dados em SQL e SAS, garantindo precisão para decisões críticas de negócio.">Managed large datasets in SQL and SAS, ensuring accuracy for critical business decisions.</li>
           </ul>
         </div>
       </div>
       <div class="job">
-        <div class="when">Fev 2013 – Mai 2016</div>
+        <div class="when" data-en="Feb 2013 – May 2016" data-pt="Fev 2013 – Mai 2016">Feb 2013 – May 2016</div>
         <div>
-          <h3>Junior Data Analyst</h3>
-          <div class="org">Bradesco Seguros, Rio de Janeiro, Brasil</div>
+          <h3 data-en="Junior Data Analyst" data-pt="Analista de Dados Júnior">Junior Data Analyst</h3>
+          <div class="org" data-en="Bradesco Seguros, Rio de Janeiro, Brazil" data-pt="Bradesco Seguros, Rio de Janeiro, Brasil">Bradesco Seguros, Rio de Janeiro, Brazil</div>
           <ul>
-            <li>Criei relatórios detalhados em MicroStrategy e BusinessObjects para múltiplos departamentos.</li>
-            <li>Colaborei com times de TI no design, teste e validação de novas métricas de performance.</li>
-            <li>Apliquei métodos estatísticos, incluindo regressão e estatística descritiva, usando VBA.</li>
+            <li data-en="Created detailed reports in MicroStrategy and BusinessObjects for multiple departments."
+                data-pt="Criei relatórios detalhados em MicroStrategy e BusinessObjects para múltiplos departamentos.">Created detailed reports in MicroStrategy and BusinessObjects for multiple departments.</li>
+            <li data-en="Collaborated with IT teams to design, test, and validate new performance metrics."
+                data-pt="Colaborei com times de TI no design, teste e validação de novas métricas de performance.">Collaborated with IT teams to design, test, and validate new performance metrics.</li>
+            <li data-en="Applied statistical methods, including regression analysis, using VBA."
+                data-pt="Apliquei métodos estatísticos, incluindo regressão e estatística descritiva, usando VBA.">Applied statistical methods, including regression analysis, using VBA.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  
-
   <section id="education" class="wrap">
-    <div class="section-head"><span class="section-num">05</span><h2>Formação &amp; Reconhecimentos</h2></div>
+    <div class="section-head"><span class="section-num">04</span><h2 data-en="Education &amp; Acknowledgements" data-pt="Formação &amp; Reconhecimentos" data-html="true">Education &amp; Acknowledgements</h2></div>
     <div class="edu-grid">
       <div>
         <div class="edu-item">
-          <h3>Postgraduate Certificate , Applied A.I. Solutions Development</h3>
+          <h3>Postgraduate Certificate — Applied A.I. Solutions Development</h3>
           <div class="org">George Brown Polytechnic, School of Computer Technology, Toronto, ON</div>
-          <div class="when">Em andamento , conclusão prevista abril de 2027</div>
+          <div class="when" data-en="In progress — expected completion April 2027" data-pt="Em andamento — conclusão prevista para abril de 2027">In progress — expected completion April 2027</div>
         </div>
         <div class="edu-item">
-          <h3>Postgraduate Certificate , Marketing, Research &amp; Analytics</h3>
+          <h3>Postgraduate Certificate — Marketing, Research &amp; Analytics</h3>
           <div class="org">Centennial College of Applied Arts and Technology, Toronto, ON</div>
-          <div class="when">Dezembro de 2023 · Cum Laude, GPA 4.0/4.0</div>
+          <div class="when" data-en="December 2023 · Cum Laude, GPA 4.0/4.0" data-pt="Dezembro de 2023 · Cum Laude, GPA 4.0/4.0">December 2023 · Cum Laude, GPA 4.0/4.0</div>
         </div>
         <div class="edu-item">
-          <h3>Bacharelado em Estatística</h3>
-          <div class="org">Universidade do Estado do Rio de Janeiro (UERJ), Rio de Janeiro, Brasil</div>
-          <div class="when">Dezembro de 2019</div>
-          <p style="font-size:13.5px; color:var(--ink-soft); margin-top:6px;">Projeto principal: previsão de churn de curto prazo usando modelos de séries temporais para apoiar estratégias de retenção.</p>
+          <h3 data-en="Bachelor of Science in Statistics" data-pt="Bacharelado em Estatística">Bachelor of Science in Statistics</h3>
+          <div class="org" data-en="Universidade do Estado do Rio de Janeiro (UERJ), Rio de Janeiro, Brazil" data-pt="Universidade do Estado do Rio de Janeiro (UERJ), Rio de Janeiro, Brasil">Universidade do Estado do Rio de Janeiro (UERJ), Rio de Janeiro, Brazil</div>
+          <div class="when" data-en="December 2019" data-pt="Dezembro de 2019">December 2019</div>
+          <p class="proj-note" data-en="Major project: forecasted a company's short-term churn rate using time series models to support retention strategies."
+             data-pt="Projeto principal: previsão de churn de curto prazo usando modelos de séries temporais para apoiar estratégias de retenção.">Major project: forecasted a company's short-term churn rate using time series models to support retention strategies.</p>
         </div>
       </div>
 
       <div class="cert-box">
-        <h3>Certificações</h3>
+        <h3 data-en="Certifications" data-pt="Certificações">Certifications</h3>
         <ul>
-          <li>SAS Programming , Basic</li>
-          <li>SAS Programming , Advanced</li>
+          <li>SAS Programming — Basic</li>
+          <li>SAS Programming — Advanced</li>
           <li>SAS Enterprise Miner</li>
         </ul>
-        <p style="font-size:12.5px; color:var(--ink-soft); margin:0;">SAS Institute, Brasil , 2019</p>
-        <div class="note">Adicione aqui cópias de transcripts (oficial/não oficial) e cartas de recomendação, se houver , como PDFs anexados ou links de download, conforme exigido pela guideline do trabalho.</div>
+        <p class="cert-source" data-en="SAS Institute, Brazil — 2019" data-pt="SAS Institute, Brasil — 2019">SAS Institute, Brazil — 2019</p>
       </div>
     </div>
   </section>
@@ -405,7 +392,7 @@
   <div class="foot-grid">
     <div>
       <div class="name-mark">Marcos Gomes</div>
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;">Toronto, ON, Canadá</div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;">Toronto, ON, Canada</div>
     </div>
     <div class="contact">
       <a href="mailto:gs.jmarcos@gmail.com">gs.jmarcos@gmail.com</a>
@@ -414,6 +401,31 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('langToggle');
+  var current = 'en';
+  function apply(lang){
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      var val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
+      if (val === null) return;
+      if (el.getAttribute('data-html') === 'true') {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+    btn.textContent = lang === 'en' ? 'PT-BR' : 'EN';
+    btn.setAttribute('aria-pressed', lang === 'pt' ? 'true' : 'false');
+    current = lang;
+  }
+  btn.addEventListener('click', function(){
+    apply(current === 'en' ? 'pt' : 'en');
+  });
+})();
+</script>
 
 </body>
 </html>
